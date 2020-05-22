@@ -155,7 +155,7 @@ struct CONSTANT_NameAndType_info : public cp_info {
 };
 
 struct CONSTANT_Utf8_info : public cp_info {
-    u16 length;
+    u16 length;//count of u8
     u8 *bytes;
 
     CONSTANT_Utf8_info(u16 length, u8 *bytes) : cp_info(ClassFileConstants::CONSTANT_Utf8), length(length),
