@@ -16,7 +16,7 @@ int main() {
 
     auto **p = new cp_info *[cf.constant_pool_count];
 
-    for (int i = 1; i <= cf.constant_pool_count; ++i) {
+    for (int i = 1; i < cf.constant_pool_count; ++i) {
         u8 tag = cfs.read_u8();
         cp_info *inf;
         switch (tag) {
@@ -90,6 +90,19 @@ int main() {
             int x = 01;
         }
     }
+
+    cf.access_flags = cfs.read_u16();
+    cf.this_class = cfs.read_u16();
+    cf.super_class = cfs.read_u16();
+
+    cf.interfaces_count = cfs.read_u16();
+    cf.interfaces = new u16[cf.interfaces_count];
+    for (int i = 0; i < cf.interfaces_count; ++i) {
+        cf.interfaces[i] = cfs.read_u16();
+    }
+
+    cf.fields_count = cfs.read_u16();
+
 
     return 0;
 }

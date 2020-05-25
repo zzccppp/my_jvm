@@ -62,7 +62,7 @@ struct ClassFile {
     u16 this_class;
     u16 super_class;
     u16 interfaces_count;
-    //u16 *interfaces;
+    u16 *interfaces;
     u16 fields_count;
     //filed_info
     u16 methods_count;
